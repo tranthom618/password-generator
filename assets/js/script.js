@@ -10,12 +10,36 @@ function writePassword() {
 
 }
 
+// Main function for the password generation process
 function generatePassword() {
+  //User window prompts to select criteria of their password
   var lengthPW = prompt("Please enter a number for how long your password will be (8 min to 128max):", 8);
   var lowercase = confirm("Include lowercase letters?\nClick Ok for YES\nClick Cancel for NO");
   var uppercase = confirm("Include UPPERCASE letters?\nClick Ok for YES\nClick Cancel for NO");
   var numPW = confirm("Include numbers?\nClick Ok for YES\nClick Cancel for NO");
-  var lowercase = confirm("Include special characters? (!@#$...)\nClick Ok for YES\nClick Cancel for NO");
+  var specChar = confirm("Include special characters? (!@#$...)\nClick Ok for YES\nClick Cancel for NO");
+
+  var vocab = "";
+
+  // var criteriaPW = [lowercase, uppercase, numPW, specChar]
+
+  // Multiple 'if' only statements because each criteria needs to be independently checked unrelated to the others.
+  // Using 1 'if' and multiple 'else if' will stop the code whenever the first condition is met.
+  if (lowercase === true) {
+    vocab.concat("abcdefghijklmnopqrstuvwxyz");
+  }
+
+  if (uppercase === true) {
+    vocab.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+  }
+
+  if (numPW === true) {
+    vocab.concat("1234567890")
+  }
+
+  if (specChar === true) {
+    vocab.concat("!@#$%^&*()<>?,.");
+  }
 
 }
 
