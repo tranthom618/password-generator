@@ -50,7 +50,7 @@ function generatePassword() {
   }
   
   // The variables for the password being constructed and the random number generator to select a character to construct with
-  var password = "";
+  var constructPW = "";
   var rng;
 
   // for loop that runs both the random number generator and constructs the password as it picks a number
@@ -61,8 +61,11 @@ function generatePassword() {
     rng = Math.floor(Math.random() * vocab.length);
 
     // Substring will select a random character using the number from above, the number represents the index position within the vocab string.
-    password += vocab.substring(rng, rng+1)
+    constructPW += vocab.substring(rng, rng+1)
   }
+
+  console.log(constructPW);
+  
 }
 
 // Add event listener to generate button
