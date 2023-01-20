@@ -21,26 +21,27 @@ function generatePassword() {
 
   // vocab will be the library of characters the user wants to be used
   var vocab = "";
+  lengthPW = +lengthPW;
 
   // Multiple 'if' only statements because each criteria needs to be independently checked unrelated to the others.
   // Using 1 'if' and multiple 'else if' will stop the code whenever the first condition is met.
   if (lowercase === true) {
-    vocab.concat("abcdefghijklmnopqrstuvwxyz");
+    vocab = vocab.concat("abcdefghijklmnopqrstuvwxyz");
     alert("Lowercase letters added:\nabcdefghijklmnopqrstuvwxyz");
   }
 
   if (uppercase === true) {
-    vocab.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    vocab = vocab.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
     alert("Uppercase letters added:\nABCDEFGHIJKLMNOPQRSTUVWXYZ");
   }
 
   if (numPW === true) {
-    vocab.concat("1234567890");
+    vocab = vocab.concat("1234567890");
     alert("Numbers added:\n1234567890");
   }
 
   if (specChar === true) {
-    vocab.concat("!@#$%^&*()<>?,.");
+    vocab = vocab.concat("!@#$%^&*()<>?,.");
     alert("Special characters added:\n!@#$%^&*()<>?,.");
   }
 
@@ -48,10 +49,10 @@ function generatePassword() {
   if (lowercase === false && uppercase === false && numPW === false && specChar === false) {
     alert("You picked nothing for the password criteria!\nYou trying to make me use periods to make morse code or something?\n\nPress 'Generate Password' again and pick at least one of the criteria please.");
   }
-  
+
   // The variables for the password being constructed and the random number generator to select a character to construct with
   var constructPW = "";
-  var rng;
+  var rng = Number;
 
   // for loop that runs both the random number generator and constructs the password as it picks a number
   // and uses that number to pick a letter/number/character within vocab.
@@ -61,11 +62,9 @@ function generatePassword() {
     rng = Math.floor(Math.random() * vocab.length);
 
     // Substring will select a random character using the number from above, the number represents the index position within the vocab string.
-    constructPW += vocab.substring(rng, rng+1)
+    constructPW = constructPW + vocab.substring(rng, rng+1)
   }
-
-  console.log(constructPW);
-  
+  return constructPW;
 }
 
 // Add event listener to generate button
