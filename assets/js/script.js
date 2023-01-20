@@ -19,6 +19,7 @@ function generatePassword() {
   var numPW = confirm("Include numbers?\nClick Ok for YES\nClick Cancel for NO");
   var specChar = confirm("Include special characters? (!@#$...)\nClick Ok for YES\nClick Cancel for NO");
 
+  // vocab that will be the library of characters the user wants to be used
   var vocab = "";
 
   // Multiple 'if' only statements because each criteria needs to be independently checked unrelated to the others.
@@ -43,10 +44,18 @@ function generatePassword() {
     alert("Special characters added:\n!@#$%^&*()<>?,.");
   }
 
+  // The alert for when none of the criteria is selected.
   if (lowercase === false && uppercase === false && numPW === false && specChar === false) {
     alert("You picked nothing for the password criteria!\nYou trying to make me use periods to make morse code or something?\n\nPress 'Generate Password' again and pick at least one of the criteria please.");
   }
+  
+  // The variables for the password being constructed and the random number generator to select a character to construct with
+  var password;
+  var randomGenerator;
 
+  for (var i = 0; i <= lengthPW; i++) {
+    
+  }
 }
 
 // Add event listener to generate button
