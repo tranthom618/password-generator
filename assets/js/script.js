@@ -19,7 +19,7 @@ function generatePassword() {
   var numPW = confirm("Include numbers?\nClick Ok for YES\nClick Cancel for NO");
   var specChar = confirm("Include special characters? (!@#$...)\nClick Ok for YES\nClick Cancel for NO");
 
-  // vocab that will be the library of characters the user wants to be used
+  // vocab will be the library of characters the user wants to be used
   var vocab = "";
 
   // Multiple 'if' only statements because each criteria needs to be independently checked unrelated to the others.
@@ -50,28 +50,20 @@ function generatePassword() {
   }
   
   // The variables for the password being constructed and the random number generator to select a character to construct with
-  var password;
-  var randomGenerator;
+  var password = "";
+  var rng;
 
+  // for loop that runs both the random number generator and constructs the password as it picks a number
+  // and uses that number to pick a letter/number/character within vocab.
   for (var i = 0; i <= lengthPW; i++) {
-    
+    // Math.random picks a random number from 0 to the character length of vocab (or the total number of characters available to choose)
+    // Math.floor ensures it's an integer and not a decimal by rounding it down.
+    rng = Math.floor(Math.random() * vocab.length);
+
+    // Substring will select a random character using the number from above, the number represents the index position within the vocab string.
+    password += vocab.substring(rng, rng+1)
   }
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-
-/////////////////////////
-
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
