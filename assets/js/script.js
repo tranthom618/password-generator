@@ -43,6 +43,10 @@ function generatePassword() {
     alert("Special characters added:\n!@#$%^&*()<>?,.");
   }
 
+  if (lowercase === false && uppercase === false && numPW === false && specChar === false) {
+    alert("You picked nothing for the password criteria!\nYou trying to make me use periods to make morse code or something?\n\nPress 'Generate Password' again and pick at least one of the criteria please.");
+  }
+
 }
 
 // Add event listener to generate button
