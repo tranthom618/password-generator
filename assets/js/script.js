@@ -21,24 +21,26 @@ function generatePassword() {
 
   var vocab = "";
 
-  // var criteriaPW = [lowercase, uppercase, numPW, specChar]
-
   // Multiple 'if' only statements because each criteria needs to be independently checked unrelated to the others.
   // Using 1 'if' and multiple 'else if' will stop the code whenever the first condition is met.
   if (lowercase === true) {
     vocab.concat("abcdefghijklmnopqrstuvwxyz");
+    alert("Lowercase letters added:\nabcdefghijklmnopqrstuvwxyz");
   }
 
   if (uppercase === true) {
-    vocab.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+    vocab.concat("ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+    alert("Uppercase letters added:\nABCDEFGHIJKLMNOPQRSTUVWXYZ");
   }
 
   if (numPW === true) {
-    vocab.concat("1234567890")
+    vocab.concat("1234567890");
+    alert("Numbers added:\n1234567890");
   }
 
   if (specChar === true) {
     vocab.concat("!@#$%^&*()<>?,.");
+    alert("Special characters added:\n!@#$%^&*()<>?,.");
   }
 
 }
