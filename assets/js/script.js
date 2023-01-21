@@ -13,7 +13,7 @@ function writePassword() {
 // Main function for the password generation process
 function generatePassword() {
   //User window prompts to select criteria of their password
-  var lengthPW = prompt("Please enter a number for how long your password will be (8 min to 128max):", 8);
+  var lengthPW = prompt("Please enter a number for how long your password will be (8 min to 128 max):", 8);
 
   // Added an if + else if statement to create 8 min and 128 max for the password length
   if (lengthPW < 8) {
