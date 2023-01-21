@@ -14,6 +14,18 @@ function writePassword() {
 function generatePassword() {
   //User window prompts to select criteria of their password
   var lengthPW = prompt("Please enter a number for how long your password will be (8 min to 128max):", 8);
+
+  // Added an if + else if statement to create 8 min and 128 max for the password length
+  if (lengthPW < 8) {
+    alert("Password length too short!\n\nPlease try again.");
+    return("Password length chosen is too short. Please try again.");
+  }
+  
+  else if (lengthPW > 128) {
+    alert("Password length too long!\n\nPlease try again.");
+    return("Password length chosen is too long. Please try again."); // Stops the rest of the script from running
+  }
+
   var lowercase = confirm("Include lowercase letters?\nClick Ok for YES\nClick Cancel for NO");
   var uppercase = confirm("Include UPPERCASE letters?\nClick Ok for YES\nClick Cancel for NO");
   var numPW = confirm("Include numbers?\nClick Ok for YES\nClick Cancel for NO");
@@ -21,6 +33,7 @@ function generatePassword() {
 
   // vocab will be the library of characters the user wants to be used
   var vocab = "";
+  // This should force lengthPW into a number instead of a string
   lengthPW = +lengthPW;
 
   // Multiple 'if' only statements because each criteria needs to be independently checked unrelated to the others.
@@ -47,7 +60,8 @@ function generatePassword() {
 
   // The alert for when none of the criteria is selected.
   if (lowercase === false && uppercase === false && numPW === false && specChar === false) {
-    alert("You picked nothing for the password criteria!\nYou trying to make me use periods to make morse code or something?\n\nPress 'Generate Password' again and pick at least one of the criteria please.");
+    alert("You picked nothing for the password criteria!\n\nPress 'Generate Password' again and pick at least one of the criteria please.");
+    return("No characters were chosen to construct your password. Please try again.");
   }
 
   // The variables for the password being constructed and the random number generator to select a character to construct with
@@ -57,6 +71,7 @@ function generatePassword() {
   // for loop that runs both the random number generator and constructs the password as it picks a number
   // and uses that number to pick a letter/number/character within vocab.
   for (var i = 0; i <= lengthPW; i++) {
+
     // Math.random picks a random number from 0 to the character length of vocab (or the total number of characters available to choose)
     // Math.floor ensures it's an integer and not a decimal by rounding it down.
     rng = Math.floor(Math.random() * vocab.length);
